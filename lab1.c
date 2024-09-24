@@ -12,6 +12,22 @@
  */
 char* readString(char* fileName){
     //TODO: Replace this line with your code
+    char buffer[100];
+
+    FILE *file = fopen(fileName, "r");
+
+    if(file == NULL){
+        return NULL;
+    }
+
+    if (fgets(buffer, 100, file) != NULL){
+        buffer[strcspn(buffer,"\n")] = '\0';
+        fclose(file);
+        return buffer;
+    }
+
+    fclose(file);
+    return NULL;
 }
 
 /*
@@ -29,5 +45,6 @@ char* readString(char* fileName){
  * 
  */
 char* mysteryExplode(const char* str){
-    //TODO: Replace this line with your code
+    //TODO: Replace this line with your code    must include malik 
+
 }
