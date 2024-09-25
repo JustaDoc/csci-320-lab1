@@ -54,7 +54,7 @@ char* mysteryExplode(const char* str){
     char *result = (char*)malloc((new + 1)*sizeof(char));
 
     if (result == NULL){
-        fptinf(stderr, "Error");
+        printf(stderr, "Error");
         return NULL;
     }
 
