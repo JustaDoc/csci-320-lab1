@@ -17,14 +17,16 @@ char* readString(char* fileName){
     FILE *file = fopen(fileName, "r");
 
     if(file == NULL){
-        fprintf("Error: ", fileName, " failed to open.");
         return NULL;
     }
 
     if (fgets(buffer, 100, file) != NULL){
         buffer[strcspn(buffer,"\n")] = '\0';
         fclose(file);
-        return buffer;
+        
+        char* res = (char*)malloc(strlen(buffer) + 1);
+        strcpy(res, buffer);
+        return res;
     }
 
     fclose(file);
@@ -54,7 +56,6 @@ char* mysteryExplode(const char* str){
     char *result = (char*)malloc((new + 1)*sizeof(char));
 
     if (result == NULL){
-        printf(stderr, "Error: Not enough space");
         return NULL;
     }
 
