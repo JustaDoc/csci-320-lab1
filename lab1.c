@@ -17,6 +17,7 @@ char* readString(char* fileName){
     FILE *file = fopen(fileName, "r");
 
     if(file == NULL){
+        fprintf("Error: ", fileName, " failed to open.");
         return NULL;
     }
 
@@ -46,5 +47,22 @@ char* readString(char* fileName){
  */
 char* mysteryExplode(const char* str){
     //TODO: Replace this line with your code    must include malik 
+    int len = strlen(str);
+    int new = (len * (len+1)/2);
 
+    
+    char *result = (char*)malloc((new + 1)*sizeof(char));
+
+    if (result == NULL){
+        fptinf(stderr, "Error");
+        return NULL;
+    }
+
+    result[0] = '\0';
+
+    for(int i = 1; i <= len; i++ ){
+        strncat(result, str, i);
+    }
+
+    return result;
 }
